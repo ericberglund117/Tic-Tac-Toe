@@ -37,7 +37,7 @@ Eric Berglund
 
 Hannah Hudson - evaluator
 
-## Acknowledgements
+## Acknowledgements and Resources
 
 I would like to acknowledge our instructors, Hannah Hudson, Casey DallaValle, and Scott Ertmer for their guidance and help during the course of the mod. I would also like to thank the other members the 2006FE cohort for creating a dynamic and inclusive atmosphere which fosters learning and embraces fun while simultaneously undergoing significant challenges and growth. Thank you to my mentor Eric for a code review
 
