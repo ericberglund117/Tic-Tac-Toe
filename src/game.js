@@ -2,17 +2,23 @@ class Game {
   constructor(player) {
     this.turn = player.id;
     this.move = player.move;
-    this.
+    this.markPlacement = [];
   }
 
   markGameBoard(position, mark) {
     board.position = mark;
+    playMark();
   }
 
   printBoard() {
+    createBoard();
 
   }
+  swapTurns(Player){
+    player1 = !player1
+  }
 };
+
 
 
 // create game board;
