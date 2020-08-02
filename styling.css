@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%
+}
+
+body {
+  display: flex;
+}
+/*=== fonts ===*/
+.body-text, h1 {
+  font-family: 'Lemonada';
+  font-size: 1.5rem;
+}
+
+/*=== left side ===*/
+.left-side-section {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  background-image: url("https://cdn.shopify.com/s/files/1/0024/2810/8869/products/Concrete_Replica_Surfaces_website_2048x.jpg?v=1586357578");
+}
+
+/*=== right side ===*/
+.right-side-section {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  background-image: url("https://i.pinimg.com/originals/db/27/dd/db27dd0b22f61ad893e7bbff55d82d6e.jpg")
+}
+/*=== main section ===*/
+.main-section {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-board {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 75%;
+  margin: 55px;
+}
+
+.display-turn {
+  display: flex;
+  justify-content: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 10px;
+}
