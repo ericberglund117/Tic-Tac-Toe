@@ -54,3 +54,51 @@ body {
   padding-right: 25px;
   margin-bottom: 10px;
 }
+
+.data-num=1 {
+  border: 2px solid;
+  border-top: none;
+  border-left: none;
+}
+
+#cell1 {
+  border: 2px solid;
+  border-top: none;
+}
+
+#cell2 {
+  border: 2px solid;
+  border-top: none;
+  border-right: none;
+}
+
+#cell3 {
+  border: 2px solid;
+  border-left: none;
+}
+
+#cell4 {
+  border: 2px solid;
+}
+
+#cell5 {
+  border: 2px solid;
+  border-right: none;
+}
+
+#cell6 {
+  border: 2px solid;
+  border-left: none;
+  border-bottom: none;
+}
+
+#cell7 {
+  border: 2px solid;
+  border-bottom: none;
+}
+
+#cell8 {
+  border: 2px solid;
+  border-bottom: none;
+  border-right: none;
+}

@@ -1,8 +1,8 @@
 class Game {
   constructor(player) {
-    this.turn = player.id;
-    this.move = player.move;
-    this.markPlacement = [];
+    this.turn = currentPlayer.id;
+    this.move = currentPlayer.move;
+    this.markPlaced = [];
   }
 
   markGameBoard(position, mark) {
