@@ -1,14 +1,15 @@
 window.onload = start;
 
 var body = document.querySelector("body")
-var cells = document.querySelector(".cell")
 var gameBoard = document.querySelector(".game-board");
-var displayTurn = document.querySelector(".display-turn")
+var cells = document.querySelectorAll(".cell")
+var displayTurn = document.querySelector(".display")
+var playerWinCounter = document.querySelector(".player-wins")
 var counter = 1;
 var winCounter = 0;
 var xMoves = [];
 var oMoves = [];
-var markOptions = ['','','','','','','','',''];
+var markOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 var winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -23,6 +24,7 @@ var gameActive = true;
 var currentPlayer = new Player('dave', 'X', [], [])
 var winningMessage = `${currentPlayer} has won!`;
 var drawMessage = 'Game ended in a draw!';
+var cellsArray = Array.prototype.slice.call(cells)
 // displayTurn.innerHTML = currentPlayerTurn();
 
 // //eventListener
@@ -33,19 +35,17 @@ gameBoard.addEventListener('click', clickHandler);
 function clickHandler(event) {
   if (event.target.classList.contains('cell')) {
     playMark();
-
   };
 }
 
 function start() {
   addPlayerListener();
-  // addResetListener();
+  addResetListener();
 }
 
 function addPlayerListener() {
-  var cellsArray = Array.prototype.slice.call(cells)
   for(var i = 0; i < cellsArray.length - 1; i++) {
-    cellsArray[i].addEventListener("click", addXorO)
+    cellsArray[i].addEventListener("click", playMark)
   }
 }
 
@@ -78,11 +78,6 @@ function playMark(){
  }
 }
 
-// function addResetListener(){
-//   var resetButton = document.getElementById("reset");
-//   resetButton.addEventListener("click", resetBoard);
-// }
-
 function checkForWin(movesArray, name){
   // loop over the first array of winning combinations
   for (i = 0; i < winningCombos.length; i++) {
@@ -103,38 +98,22 @@ function checkForWin(movesArray, name){
   }
 }
 
-// function resetBoard(){
-//   for (var i = boxes.length - 1; i >= 0; i--) {
-//     boxes[i].innerHTML="";
-//     boxes[i].setAttribute("class","clear");
-//   }
-//   oMoves = [];
-//   xMoves = [];
-//   winCounter = 0;
-//   counter = 1;
-//   turnText.innerHTML = "It is X's turn";
-// }
+function addResetListener() {
+  var resetButton = document.querySelector("#reset");
+  resetButton.addEventListener("click", resetBoard);
+}
 
-
-
-
-
-// function displayMarkedBoard() {
-//   gameBoard.innerHTML = '';
-//   for(var i = 0; i < markOptions.length; i++) {
-//     var markPlayed = `
-//     <div class="cell">
-//       <img src="$${playerToken}" alt="chosen-spot"
-//     </div>`
-//   }
-// }
-//
-// function clickHandler(){
-//   var cell = originalBoard[i];
-//   var clickedCell = parseInt(cell.getAttribute(''))
-//   var currentMark = player1 ? circleClass : xClass;
-//   placeMark(cell, currentMark)
-// }
+function resetBoard() {
+  for (var i = cellsArray.length - 1; i >= 0; i--) {
+    cellsArray[i].innerHTML = "cell";
+    cellsArray[i].setAttribute("class","cell");
+  }
+  oMoves = [];
+  xMoves = [];
+  winCounter = 0;
+  counter = 1;
+  displayTurn.innerHTML = "It is X's turn";
+}
 
 
 // function getWinsFromLocalStorage() {
