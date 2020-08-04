@@ -4,23 +4,24 @@ var cells = document.querySelectorAll(".cell");
 var displayTurn = document.querySelector(".display");
 var player1WinCounter = document.querySelector(".p1-win-counter")
 var player2WinCounter = document.querySelector(".p2-win-counter")
-var firstPlayer = new Player('X')
-var secondPlayer = new Player("O")
+// var firstPlayer = new Player('X')
+// var secondPlayer = new Player("O")
 var game = new Game(firstPlayer, secondPlayer);
 
-var gameActive = true;
+
 var cellsArray = Array.prototype.slice.call(cells)
 // displayTurn.innerHTML = currentPlayerTurn();
 
 // //eventListener
 gameBoard.addEventListener('click', clickHandler);
-//
+
 // //functions
 
 function clickHandler(event) {
   if (event.target.classList.contains('cell')) {
     game.checkCurrentPlayer();
     game.playMark();
+    // game.restartGame();
   }
 }
 
