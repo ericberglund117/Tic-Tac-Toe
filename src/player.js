@@ -1,6 +1,7 @@
 class Player {
-  constructor(name) {
+  constructor(name, playerNumber) {
     this.name = name;
+    this.playerNumber = playerNumber;
     this.wins = 0;
     this.moves = [];
   }
@@ -13,7 +14,7 @@ class Player {
   }
 }
 
-var firstPlayer = new Player('X')
-var secondPlayer = new Player("O")
+var firstPlayer = new Player('X', "firstPlayer")
+var secondPlayer = new Player("O", "secondPlayer")
 
 //need to find a way to diff between player 1 and player 2 wins in order to save into local storage
