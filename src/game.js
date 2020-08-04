@@ -5,7 +5,8 @@ class Game {
     this.player1Turn = true;
     this.wins = [player.wins]
     this.winCounter = 0;
-    this.counter = 1;
+    this.win = false;
+    this.gameActive = true;
     this.winningCombos = [
         [0, 1, 2],
         [3, 4, 5],
@@ -18,16 +19,22 @@ class Game {
       ]
   }
 
-  start() {
-    addPlayerListener();
-    addResetListener();
-  }
+  // start() {
+  //   addPlayerListener();
+  //   // addResetListener();
+  // }
+  //
+  // addPlayerListener() {
+  //   for(var i = 0; i < cellsArray.length - 1; i++) {
+  //     cellsArray[i].addEventListener("click", this.playMark)
+  //   }
+  // }
 
-  addPlayerListener() {
-    for(var i = 0; i < cellsArray.length - 1; i++) {
-      cellsArray[i].addEventListener("click", playMark)
-    }
-  }
+  // createBoard (cellsArray) {
+  //   for(var i = 0; i < cellsArray.length - 1; i++) {
+  //     cellsArray[i].inner
+  //   }
+  // }
 
   checkCurrentPlayer() {
     if(this.player1Turn) {
@@ -49,47 +56,52 @@ class Game {
       this.player1Turn = false;
       this.includesWin(this.winningCombos, this.player1.moves)
       this.checkForWin(this.player1.moves, "X");
-      this.checkforDraw();
     } else {
       this.player2.moves.push(parseInt(event.target.getAttribute("data-num")))
+      console.log(this.player2.moves)
       event.target.innerHTML = "O";
       event.target.setAttribute("class","O");
       displayTurn.innerHTML = "It is X's turn";
       this.counter++;
       this.player1Turn = true;
+      this.includesWin(this.winningCombos, this.player2.moves)
+      this.checkForWin(this.player2.moves, "O");
     }
-    this.includesWin(this.winningCombos, this.player2.moves)
-    this.checkForWin(this.player2.moves, "O");
-    this.checkforDraw();
   }
 
 
   includesWin(winningCombos, moves) {
     for (var i = 0; i < winningCombos.length; i++) {
       if(!moves.includes(winningCombos[i])) {
-        return false;
+       this.win = false;
       }
     }
-    return true;
+    this.win = true;
   }
 
-  disableCells() {
-    if(this.wins !== 0) {
+  disableEnableCells() {
+    if(this.win) {
+      this.gameActive = false;
       gameBoard.removeEventListener('click', clickHandler);
+    } else {
+      this.gameActive = true;
+      gameBoard.addEventListener('click', clickHandler);
     }
   }
 
-  checkForWin(movesArray, player, event) {
+  checkForWin(movesArray, player) {
     // loop over the first array of winning combinations
     for (var i = 0; i < this.winningCombos.length; i++) {
       if(this.includesWin(this.winningCombos[i], movesArray)) {
-        this.winCounter++
-        this.wins.push(this.winCounter)
-        console.log(this.wins)
-        this.disableCells()
-        setTimeout(function() { alert(`Game over. ${player} wins!`); }, 3000)
-        return
-      }
+          this.win
+          this.winCounter++
+          this.wins.push(this.winCounter)
+          console.log(this.wins)
+          this.disableEnableCells()
+          alert(`Game over. ${player} wins! Do you want to play again?`, 2000)
+          var delayRestart = window.setTimeout(this.resetBoard, 4000)
+        }
+      return
       //reset the cellCounter each time!
     //   this.winCounter = 0;
     //   // loop over each individual array
@@ -103,8 +115,8 @@ class Game {
           // timeout look at mdn and videos
 
       // window.setTimeout(function() { alert(`Game over. ${player.name} wins!`); }, 3000)
-        }
       }
+
 
 
 
@@ -113,26 +125,37 @@ class Game {
         displayTurn.innerHTML = "Game Over!";
         var conf = confirm("It's a draw, do you want to play again?");
         if(conf){
-          resetBoard();
+          this.resetBoard();
         }
       }
     };
 
-  addResetListener() {
-    var resetButton = document.querySelector("#reset");
-    resetButton.addEventListener("click", resetBoard);
-  }
+  // addResetListener() {
+  //   var resetButton = document.querySelector("#reset");
+  //   resetButton.addEventListener("click", resetBoard);
+  // }
 
   resetBoard() {
-    for (var i = cellsArray.length - 1; i >= 0; i--) {
-      cellsArray[i].innerHTML = "";
-      cellsArray[i].setAttribute("class","cell");
+    if(this.win = true) {
+      for (var i = cellsArray.length - 1; i >= 0; i--) {
+        cellsArray[i].innerHTML = "class";
+        cellsArray[i].setAttribute("class","cell");
+      }
+      this.gameActive = true;
+      firstPlayer.moves = [];
+      secondPlayer.moves = [];
+      this.counter = 0;
+    } else {
+      this.win = false;
     }
-    this.player1.moves = [];
-    this.player2.moves = [];
-    this.counter = 0;
-    // Counter = 1;
-    displayTurn.innerHTML = "It is X's turn";
+    this.restartGame();
+  }
+
+  restartGame() {
+    if(!this.gameActive) {
+      this.gameActive = true;
+      gameBoard.addEventListener('click', clickHandler);
+    }
   }
 
 };
