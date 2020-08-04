@@ -1,9 +1,9 @@
 class Player {
-  constructor(id, token, wins, move) {
-    this.id = Date.now();
-    this.token = token;
-    this.wins = wins;
-    this.move = move;
+  constructor(name, playerNumber) {
+    this.name = name;
+    this.playerNumber = playerNumber;
+    this.wins = 0;
+    this.moves = [];
   }
   saveWinsToStorage(array) {
     var stringifyObject = JSON.stringify(array);
@@ -14,5 +14,7 @@ class Player {
   }
 }
 
-var currentPlayer1 = new Player('X')
-var currentPlayer2 = new Player('O')
+var firstPlayer = new Player('X', "firstPlayer")
+var secondPlayer = new Player("O", "secondPlayer")
+
+//need to find a way to diff between player 1 and player 2 wins in order to save into local storage

@@ -55,49 +55,49 @@ body {
   margin-bottom: 10px;
 }
 
-.data-num=1 {
+[data-num="0"] {
   border: 2px solid;
   border-top: none;
   border-left: none;
 }
 
-#cell1 {
+[data-num="1"] {
   border: 2px solid;
   border-top: none;
 }
 
-#cell2 {
+[data-num="2"] {
   border: 2px solid;
   border-top: none;
   border-right: none;
 }
 
-#cell3 {
+[data-num="3"] {
   border: 2px solid;
   border-left: none;
 }
 
-#cell4 {
+[data-num="4"] {
   border: 2px solid;
 }
 
-#cell5 {
+[data-num="5"] {
   border: 2px solid;
   border-right: none;
 }
 
-#cell6 {
+[data-num="6"] {
   border: 2px solid;
   border-left: none;
   border-bottom: none;
 }
 
-#cell7 {
+[data-num="7"] {
   border: 2px solid;
   border-bottom: none;
 }
 
-#cell8 {
+[data-num="8"] {
   border: 2px solid;
   border-bottom: none;
   border-right: none;
