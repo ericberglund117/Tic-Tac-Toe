@@ -4,8 +4,6 @@ var cells = document.querySelectorAll(".cell");
 var displayTurn = document.querySelector(".display");
 var player1WinCounter = document.querySelector(".p1-win-counter")
 var player2WinCounter = document.querySelector(".p2-win-counter")
-var counter = 1;
-var cellCounter = 0;
 var firstPlayer = new Player('X')
 var secondPlayer = new Player("O")
 var game = new Game(firstPlayer, secondPlayer);
@@ -21,6 +19,7 @@ gameBoard.addEventListener('click', clickHandler);
 
 function clickHandler(event) {
   if (event.target.classList.contains('cell')) {
+    game.checkCurrentPlayer();
     game.playMark();
   };
 }
