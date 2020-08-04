@@ -21,6 +21,8 @@ function clickHandler(event) {
   if (event.target.classList.contains('cell')) {
     game.checkCurrentPlayer();
     game.playMark();
+    game.checkforDraw();
+    game.checkForWin();
     // game.restartGame();
   }
 }
