@@ -29,6 +29,21 @@ Iteration 5
 
 ## Key Concepts and Challenges
 
+__Key Concepts__
+
+- class creation
+- instantiating a class
+- Creating a new instance of a class and passing an object through as an argument
+- object oriented pogramming
+
+__Challenges__
+
+- Checking for wins
+- Creating and updating win counter per player
+- Restarting the game after a win or draw
+
+- These were challenges because the checking for wins function would iterate through the players moves and the winning combos, but it wouldn't define a winner if those arrays matched. The others were an issue because I couldn't update those functions if a winner was not detected. 
+
 
 ## Links to Author's Repositories
 
@@ -43,4 +58,4 @@ I would like to acknowledge our instructors, Hannah Hudson, Casey DallaValle, an
 
 ## Additional information Concerning the Project
 
-Project spec & rubric can be found here
+Project spec & rubric can be found here: https://frontend.turing.io/projects/module-1/tic-tac-toe-solo.html
