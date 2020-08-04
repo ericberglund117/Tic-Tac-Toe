@@ -13,12 +13,18 @@ display: flex;
 }
 /*=== fonts ===*/
 .body-text, .game-board, h1{
+<<<<<<< HEAD
 font-family: 'Lemonada';
 font-size: 1.5rem;
+=======
+  font-family: 'Lemonada';
+  font-size: 1.5rem;
+>>>>>>> 69a9e7536ff81a0f154ae8750a07bab69d0a03b9
 }
 
 /*=== left side ===*/
 .left-side-section {
+<<<<<<< HEAD
 width: 25%;
 padding-top: 20px;
 display: flex;
@@ -31,10 +37,25 @@ color: #00d0a6;
 background-color: #ffffff;
 height: 15%;
 font-size: 1.5rem;
+=======
+  width: 25%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-image: url("https://cdn1.vectorstock.com/i/1000x1000/23/40/abstract-color-triangles-vector-4432340.jpg");
+}
+
+.player1-token {
+  color: #00d0a6;
+  background-color: #ffffff;
+  height: 15%;
+  font-size: 1.5rem;
+>>>>>>> 69a9e7536ff81a0f154ae8750a07bab69d0a03b9
 }
 
 /*=== right side ===*/
 .right-side-section {
+<<<<<<< HEAD
 width: 25%;
 padding-top: 20px;
 display: flex;
@@ -47,6 +68,20 @@ color: #f54f29;
 background-color: #fdd192;
 height: 15%;
 font-size: 1.5rem;
+=======
+  width: 25%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-image: url("https://www.publicdomainpictures.net/pictures/300000/nahled/color-triangles-15566533336mZ.jpg");
+}
+
+.player2-token {
+  color: #f54f29;
+  background-color: #fdd192;
+  height: 15%;
+  font-size: 1.5rem;
+>>>>>>> 69a9e7536ff81a0f154ae8750a07bab69d0a03b9
 }
 /*=== main section ===*/
 .main-section {
@@ -64,6 +99,7 @@ margin: 55px;
 }
 
 .display-turn {
+<<<<<<< HEAD
 display: flex;
 justify-content: center;
 padding-left: 25px;
@@ -146,3 +182,88 @@ justify-content: center;
 border: 2px solid;
 border-bottom: none;
 border-right: none;
+=======
+  display: flex;
+  justify-content: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 10px;
+  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/43/12/flat-violet-color-geometric-triangle-wallpaper-vector-19294312.jpg");
+  color: wheat;
+}
+
+[data-num="0"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-top: none;
+  border-left: none;
+}
+
+[data-num="1"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-top: none;
+}
+
+[data-num="2"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-top: none;
+  border-right: none;
+}
+
+[data-num="3"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-left: none;
+}
+
+[data-num="4"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+}
+
+[data-num="5"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-right: none;
+}
+
+[data-num="6"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-left: none;
+  border-bottom: none;
+}
+
+[data-num="7"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-bottom: none;
+}
+
+[data-num="8"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-bottom: none;
+  border-right: none;
+}
+>>>>>>> 69a9e7536ff81a0f154ae8750a07bab69d0a03b9
