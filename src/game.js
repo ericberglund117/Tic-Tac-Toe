@@ -1,11 +1,21 @@
 class Game {
-  constructor(firstPlayer, secondPlayer) {
+  constructor(player) {
     this.player1 = firstPlayer;
     this.player2 = secondPlayer;
-    this.gameBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.player1Turn = true;
-    this.markPlaced = [];
-    this.wins = [];
+    this.wins = Player.wins
+    this.winCounter = 0;
+    this.counter = 1;
+    this.winningCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ]
   }
 
   start() {
@@ -19,79 +29,85 @@ class Game {
     }
   }
 
-  // checkCurrentPlayer() {
-  //   if(this.player1Turn){
-  //     var currentPlayer = this.player1
-  //   } else {
-  //     var currentPlayer = this.player2
-  //   }
-  //   return currentPlayer
-  // }
+  checkCurrentPlayer() {
+    if(this.player1Turn){
+      var currentPlayer = this.player1
+    } else {
+      var currentPlayer = this.player2
+    }
+    return currentPlayer
+  }
 
   playMark(){
     if(this.player1Turn) {
       this.player1.moves.push(parseInt(event.target.getAttribute("data-num")))
+      console.log(this.player1.moves)
       event.target.innerHTML = "X";
       event.target.setAttribute("class","X");
       displayTurn.innerHTML = "It is O's turn";
-      counter++;
+      this.counter++;
       this.player1Turn = false;
+      this.includesWin(this.winningCombos, this.player1.moves)
+      this.checkForWin(this.player1.moves, "X");
+      this.checkforDraw();
     } else {
       this.player2.moves.push(parseInt(event.target.getAttribute("data-num")))
       event.target.innerHTML = "O";
       event.target.setAttribute("class","O");
       displayTurn.innerHTML = "It is X's turn";
-      counter++;
+      this.counter++;
       this.player1Turn = true;
     }
-    this.checkForWin();
+    this.includesWin(this.winningCombos, this.player2.moves)
+    this.checkForWin(this.player2.moves, "O");
     this.checkforDraw();
-      }
-
-
-  // includesWin(winningCombos, moves) {
-  //   for (var i = 0; i < winningCombos.length; i++) {
-  //     if(!moves.includes(winningCombos[i])) {
-  //       return false;
-  //     }
-  //   }
-  //   return true;
-  // }
-
-  checkForWin(movesArray, player) {
-    var winningCombos = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-      ]
-    var movesArray = player.moves
-    // loop over the first array of winning combinations
-    for (var i = 0; i < winningCombos.length; i++) {
-      // reset the cellCounter each time!
-      cellCounter = 0;
-      // loop over each individual array
-      for (var j = 0; j < winningCombos[i].length; j++) {
-        // if the number in winning combo array is === a number in moves array, add to cellCounter
-        if(movesArray.indexOf(this.winningCombos[i][j]) !== -1) {
-        cellCounter++;
-        }
-        // if cellCounter === 3 that means all 3 moves are winning combos and game is over!
-    if(cellCounter === 3) {
-          // timeout look at mdn and videos
-      window.setTimeout(function() { alert(`Game over. ${player.name} wins!`); }, 3000)
-      this.resetBoard();
-        }
-      }
-    }
   }
 
+
+  includesWin(winningCombos, moves) {
+    for (var i = 0; i < winningCombos.length; i++) {
+      if(!moves.includes(winningCombos[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  checkForWin(movesArray, player) {
+    // loop over the first array of winning combinations
+    for (var i = 0; i < this.winningCombos.length; i++) {
+      if(this.includesWin(this.winningCombos[i], movesArray)) {
+        this.winCounter++
+        this.wins.push(this.winCounter)
+        console.log(this.wins)
+        // disableCells();
+        setTimeout(function() { alert(`Game over. ${player} wins!`); }, 3000)
+      }
+      //reset the cellCounter each time!
+    //   this.winCounter = 0;
+    //   // loop over each individual array
+    //   for (var j = 0; j < winningCombos[i].length; j++) {
+    //     // if the number in winning combo array is === a number in moves array, add to cellCounter
+    //     if(movesArray.indexOf(winningCombos[i][j]) !== -1) {
+    //     this.winCounter++;
+    //     }
+    //     // if cellCounter === 3 that means all 3 moves are winning combos and game is over!
+    // if(this.winCounter === 3) {
+          // timeout look at mdn and videos
+
+      // window.setTimeout(function() { alert(`Game over. ${player.name} wins!`); }, 3000)
+        }
+      }
+
+//   disableCells() {
+//     for (var i = 0; i < cellsArray.length ; i++) {
+//       cellsArray[i].innerHTML = "cell";
+//       cellsArray[i].onclick = false;
+//   }
+// }
+
     checkforDraw() {
-      if (counter >= 10) {
+      if (this.counter >= 10) {
         displayTurn.innerHTML = "Game Over!";
         var conf = confirm("It's a draw, do you want to play again?");
         if(conf){
@@ -100,11 +116,6 @@ class Game {
       }
     };
 
-
-  playerWinCounter(playerWins) {
-
-  };
-
   addResetListener() {
     var resetButton = document.querySelector("#reset");
     resetButton.addEventListener("click", resetBoard);
@@ -112,24 +123,16 @@ class Game {
 
   resetBoard() {
     for (var i = cellsArray.length - 1; i >= 0; i--) {
-      cellsArray[i].innerHTML = "cell";
+      cellsArray[i].innerHTML = "";
       cellsArray[i].setAttribute("class","cell");
     }
-    oMoves = [];
-    xMoves = [];
-    cellCounter = 0;
-    counter = 1;
+    this.player1.moves = [];
+    this.player2.moves = [];
+    this.counter = 0;
+    // Counter = 1;
     displayTurn.innerHTML = "It is X's turn";
   }
 
-
-  printBoard() {
-
-
-  }
-  swapTurns(Player){
-    player1 = !player1
-  }
 };
 
 
