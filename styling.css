@@ -1,104 +1,148 @@
 * {
-  box-sizing: border-box;
+box-sizing: border-box;
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%
+margin: 0;
+padding: 0;
+height: 100%;
 }
 
 body {
-  display: flex;
+display: flex;
 }
 /*=== fonts ===*/
-.body-text, h1 {
-  font-family: 'Lemonada';
-  font-size: 1.5rem;
+.body-text, .game-board, h1{
+font-family: 'Lemonada';
+font-size: 1.5rem;
 }
 
 /*=== left side ===*/
 .left-side-section {
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  background-image: url("https://cdn.shopify.com/s/files/1/0024/2810/8869/products/Concrete_Replica_Surfaces_website_2048x.jpg?v=1586357578");
+width: 25%;
+padding-top: 20px;
+display: flex;
+justify-content: center;
+background-image: url("https://cdn1.vectorstock.com/i/1000x1000/23/40/abstract-color-triangles-vector-4432340.jpg");
+}
+
+.player1-token {
+color: #00d0a6;
+background-color: #ffffff;
+height: 15%;
+font-size: 1.5rem;
 }
 
 /*=== right side ===*/
 .right-side-section {
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  background-image: url("https://i.pinimg.com/originals/db/27/dd/db27dd0b22f61ad893e7bbff55d82d6e.jpg")
+width: 25%;
+padding-top: 20px;
+display: flex;
+justify-content: center;
+background-image: url("https://www.publicdomainpictures.net/pictures/300000/nahled/color-triangles-15566533336mZ.jpg");
+}
+
+.player2-token {
+color: #f54f29;
+background-color: #fdd192;
+height: 15%;
+font-size: 1.5rem;
 }
 /*=== main section ===*/
 .main-section {
-  width: 55%;
-  display: flex;
-  flex-direction: column;
+width: 55%;
+display: flex;
+flex-direction: column;
 }
 
 .game-board {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 75%;
-  margin: 55px;
+display: grid;
+justify-content: center;
+grid-template-columns: 1fr 1fr 1fr;
+height: 75%;
+margin: 55px;
 }
 
 .display-turn {
-  display: flex;
-  justify-content: center;
-  padding-left: 25px;
-  padding-right: 25px;
-  margin-bottom: 10px;
+display: flex;
+justify-content: center;
+padding-left: 25px;
+padding-right: 25px;
+margin-bottom: 10px;
+background-image: url("https://cdn3.vectorstock.com/i/1000x1000/43/12/flat-violet-color-geometric-triangle-wallpaper-vector-19294312.jpg");
+color: wheat;
 }
 
 [data-num="0"] {
-  border: 2px solid;
-  border-top: none;
-  border-left: none;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-top: none;
+border-left: none;
 }
 
 [data-num="1"] {
-  border: 2px solid;
-  border-top: none;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-top: none;
 }
 
 [data-num="2"] {
-  border: 2px solid;
-  border-top: none;
-  border-right: none;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-top: none;
+border-right: none;
 }
 
 [data-num="3"] {
-  border: 2px solid;
-  border-left: none;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-left: none;
 }
 
 [data-num="4"] {
-  border: 2px solid;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
 }
 
 [data-num="5"] {
-  border: 2px solid;
-  border-right: none;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-right: none;
 }
 
 [data-num="6"] {
-  border: 2px solid;
-  border-left: none;
-  border-bottom: none;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-left: none;
+border-bottom: none;
 }
 
 [data-num="7"] {
-  border: 2px solid;
-  border-bottom: none;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-bottom: none;
 }
 
 [data-num="8"] {
-  border: 2px solid;
-  border-bottom: none;
-  border-right: none;
-}
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid;
+border-bottom: none;
+border-right: none;
