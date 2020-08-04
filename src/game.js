@@ -3,7 +3,7 @@ class Game {
     this.player1 = firstPlayer;
     this.player2 = secondPlayer;
     this.player1Turn = true;
-    this.wins = Player.wins
+    this.wins = [player.wins]
     this.winCounter = 0;
     this.counter = 1;
     this.winningCombos = [
@@ -30,7 +30,7 @@ class Game {
   }
 
   checkCurrentPlayer() {
-    if(this.player1Turn){
+    if(this.player1Turn) {
       var currentPlayer = this.player1
     } else {
       var currentPlayer = this.player2
@@ -73,15 +73,22 @@ class Game {
     return true;
   }
 
-  checkForWin(movesArray, player) {
+  disableCells() {
+    if(this.wins !== 0) {
+      gameBoard.removeEventListener('click', clickHandler);
+    }
+  }
+
+  checkForWin(movesArray, player, event) {
     // loop over the first array of winning combinations
     for (var i = 0; i < this.winningCombos.length; i++) {
       if(this.includesWin(this.winningCombos[i], movesArray)) {
         this.winCounter++
         this.wins.push(this.winCounter)
         console.log(this.wins)
-        // disableCells();
+        this.disableCells()
         setTimeout(function() { alert(`Game over. ${player} wins!`); }, 3000)
+        return
       }
       //reset the cellCounter each time!
     //   this.winCounter = 0;
@@ -99,12 +106,7 @@ class Game {
         }
       }
 
-//   disableCells() {
-//     for (var i = 0; i < cellsArray.length ; i++) {
-//       cellsArray[i].innerHTML = "cell";
-//       cellsArray[i].onclick = false;
-//   }
-// }
+
 
     checkforDraw() {
       if (this.counter >= 10) {
