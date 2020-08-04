@@ -5,6 +5,7 @@ class Game {
     this.player1Turn = true;
     this.wins = [player.wins]
     this.winCounter = 0;
+    this.counter = 1;
     this.win = false;
     this.gameActive = true;
     this.winningCombos = [
@@ -101,7 +102,7 @@ class Game {
           alert(`Game over. ${player} wins! Do you want to play again?`, 2000)
           var delayRestart = window.setTimeout(this.resetBoard, 4000)
         }
-      return
+
       //reset the cellCounter each time!
     //   this.winCounter = 0;
     //   // loop over each individual array
@@ -116,7 +117,7 @@ class Game {
 
       // window.setTimeout(function() { alert(`Game over. ${player.name} wins!`); }, 3000)
       }
-
+    }
 
 
 
@@ -159,6 +160,7 @@ class Game {
   }
 
 };
+
 
 
 
