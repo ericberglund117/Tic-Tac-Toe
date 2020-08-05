@@ -3,6 +3,8 @@ class Game {
     this.player1 = firstPlayer;
     this.player2 = secondPlayer;
     this.player1Turn = true;
+    // this.player1.wins = this.getWinsFromLocalStorage(this.player1)
+    // this.player2.wins = this.getWinsFromLocalStorage(this.player2)
     this.wins = [firstPlayer.wins] || [secondPlayer.wins]
     this.winCounter = 0;
     this.counter = 1;
@@ -76,11 +78,11 @@ class Game {
         this.counter = 0;
         if(player === "X") {
           this.player1.wins++;
+          this.player1.saveWinsToStorage(player, this.player1.wins);
         } else {
           this.player2.wins++;
+          this.player2.saveWinsToStorage(player, this.player2.wins);
         };
-        console.log(this.player1.wins);
-        console.log(this.player2.wins);
         alert(`Game over. ${player} wins! Do you want to play again?`, 2000)
         this.disableEnableCells();
         var delayRestart = window.setTimeout(this.resetBoard, 2000)
@@ -124,5 +126,16 @@ class Game {
       gameBoard.addEventListener('click', clickHandler);
     }
   }
+
+  // getWinsFromLocalStorage(player) {
+  //   if(localStorage.key(player.name)) {
+  //     var retrieveAllWins = localStorage.getItem(player.name);
+  //     var parseAllWins = JSON.parse(retrieveAllWins) || [];
+  //     // for (var i = 0; i < parseAllWins.length; i++) {
+  //       // player.wins = parseAllWins;
+  //       return parseAllWins
+  //   }
+  // };
+
 
 };
