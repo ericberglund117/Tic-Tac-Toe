@@ -11,7 +11,9 @@ var cellsArray = Array.prototype.slice.call(cells);
 
 // //eventListener
 gameBoard.addEventListener('click', clickHandler);
-
+window.addEventListener('load', function () {
+  game.countWins();
+});
 // //functions
 function clickHandler(event) {
   if (event.target.classList.contains('cell')) {
@@ -22,14 +24,17 @@ function clickHandler(event) {
 }
 
 
-function getWinsFromLocalStorage() {
-  if(localStorage.key('player1Wins')) {
-    wins = [];
-    var retrieveAllWins = localStorage.getItem('allWins');
-    var parseAllWins = JSON.parse(retrieveAllWins) || [];
-    for (var i = 0; i < parseAllWins.length; i++) {
-      currentWins = new Player(parseAllWins[i].wins)
-      wins.push(currentWins)
-    }
-  }
-}
+// function getWinsFromLocalStorage(player) {
+//   if(localStorage.key(player)) {
+//     wins = [];
+//     if(player === "X") {
+//
+//     }
+//     var retrieveAllWins = localStorage.getItem(player);
+//     var parseAllWins = JSON.parse(retrieveAllWins) || [];
+//     for (var i = 0; i < parseAllWins.length; i++) {
+//       currentWins = new Player(parseAllWins[i].player.wins)
+//       wins.push(currentWins)
+//     }
+//   }
+// }
