@@ -36,7 +36,6 @@ class Game {
   playMark() {
     if(this.player1Turn) {
       this.player1.moves.push(parseInt(event.target.getAttribute("data-num")));
-      console.log(this.player1.moves);
       event.target.innerHTML = "X";
       event.target.style.fontSize = "2rem";
       displayTurn.innerHTML = "It is O's turn";
@@ -45,7 +44,6 @@ class Game {
       this.checkForWin(this.player1.moves, "X");
     } else {
       this.player2.moves.push(parseInt(event.target.getAttribute("data-num")));
-      console.log(this.player2.moves);
       event.target.innerHTML = "O";
       event.target.style.fontSize = "2rem";
       displayTurn.innerHTML = "It is X's turn";
