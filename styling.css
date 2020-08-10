@@ -23,19 +23,22 @@ width: 25%;
 padding-top: 20px;
 display: flex;
 justify-content: center;
-background-image: url("https://cdn1.vectorstock.com/i/1000x1000/23/40/abstract-color-triangles-vector-4432340.jpg");
+background-image: url("./src/gameimages/rods_house.jpg");
+background-repeat: no-repeat;
+height: 100%;
+background-size: cover;
+background-position-x: -940px;
+}
 }
 
 .player1-token {
-color: #00d0a6;
-background-color: #ffffff;
+color: #BF2211;
 height: 15%;
 font-size: 1.5rem;
 }
 
 .player1-token {
-  color: #00d0a6;
-  background-color: #ffffff;
+  color: #BF2211;
   height: 15%;
   font-size: 1.5rem;
 }
@@ -46,19 +49,21 @@ width: 25%;
 padding-top: 20px;
 display: flex;
 justify-content: center;
-background-image: url("https://www.publicdomainpictures.net/pictures/300000/nahled/color-triangles-15566533336mZ.jpg");
+background-image: url("./src/gameimages/rods_house flipped.png");
+background-repeat: no-repeat;
+height: 100%;
+background-size: cover;
+background-position-x: -180px;
 }
 
 .player2-token {
-color: #f54f29;
-background-color: #fdd192;
+color: #BF2211;
 height: 15%;
 font-size: 1.5rem;
 }
 
 .player2-token {
-  color: #f54f29;
-  background-color: #fdd192;
+  color: #BF2211;
   height: 15%;
   font-size: 1.5rem;
 }
@@ -67,13 +72,17 @@ font-size: 1.5rem;
 width: 55%;
 display: flex;
 flex-direction: column;
+background-image: url("./src/gameimages/jump2 bus.png");
+background-repeat: no-repeat;
+background-position: bottom;
+background-size: contain;
 }
 
 .game-board {
 display: grid;
 justify-content: center;
 grid-template-columns: 1fr 1fr 1fr;
-height: 75%;
+height: 40%;
 margin: 55px;
 }
 
@@ -83,8 +92,9 @@ justify-content: center;
 padding-left: 25px;
 padding-right: 25px;
 margin-bottom: 10px;
-background-image: url("https://cdn3.vectorstock.com/i/1000x1000/43/12/flat-violet-color-geometric-triangle-wallpaper-vector-19294312.jpg");
-color: wheat;
+color: #BF2211;
+background-color: #ECA21E;
+width: 100%;
 }
 
 [data-num="0"] {

@@ -37,7 +37,6 @@ class Game {
     if(this.player1Turn) {
       this.player1.moves.push(parseInt(event.target.getAttribute("data-num")));
       event.target.innerHTML = "X";
-      event.target.style.fontSize = "2rem";
       displayTurn.innerHTML = "It is O's turn";
       this.counter++;
       this.player1Turn = false;
@@ -45,7 +44,6 @@ class Game {
     } else {
       this.player2.moves.push(parseInt(event.target.getAttribute("data-num")));
       event.target.innerHTML = "O";
-      event.target.style.fontSize = "2rem";
       displayTurn.innerHTML = "It is X's turn";
       this.counter++;
       this.player1Turn = true;
@@ -62,11 +60,11 @@ class Game {
     this.resetBoard();
   };
 
-  checkForWin(movesArray, player) {
+  checkForWin(allMoves, player) {
     for (var i = 0; i < this.winningCombos.length; i++) {
       this.winCounter = 0;
       for (var j = 0; j < this.winningCombos[i].length; j++) {
-          if(movesArray.indexOf(this.winningCombos[i][j]) !== -1) {
+          if(allMoves.indexOf(this.winningCombos[i][j]) !== -1) {
           this.winCounter++;
         };
       if(this.winCounter === 3) {
@@ -107,19 +105,19 @@ class Game {
     };
   };
 
-  // resetBoard() {
-  //   if(this.win = true) {
-  //     for (var i = cellsArray.length - 1; i >= 0; i--) {
-  //       cellsArray[i].innerHTML = "";
-  //       cellsArray[i].style.fontSize = "2rem";
-  //       cellsArray[i].setAttribute("class","cell");
-  //     };
-  //     this.gameActive = true;
-  //     firstPlayer.moves = [];
-  //     secondPlayer.moves = [];
-  //     this.counter = 0;
-  //     this.gameActive = true;
-  //     gameBoard.addEventListener('click', clickHandler);
-  //   };
-  // };
+  resetBoard() {
+    if(this.win = true) {
+      for (var i = cellsArray.length - 1; i >= 0; i--) {
+        cellsArray[i].innerHTML = "";
+        cellsArray[i].style.fontSize = "2rem";
+        cellsArray[i].setAttribute("class","cell");
+      };
+      this.gameActive = true;
+      firstPlayer.moves = [];
+      secondPlayer.moves = [];
+      this.counter = 0;
+      this.gameActive = true;
+      gameBoard.addEventListener('click', runGame);
+    };
+  };
 };
