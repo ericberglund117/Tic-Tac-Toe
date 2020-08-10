@@ -57,7 +57,7 @@ class Game {
   disableEnableCells() {
     if(this.win) {
       this.gameActive = false;
-      gameBoard.removeEventListener('click', clickHandler);
+      gameBoard.removeEventListener('click', runGame);
     }
     this.resetBoard();
   };
@@ -107,19 +107,19 @@ class Game {
     };
   };
 
-  resetBoard() {
-    if(this.win = true) {
-      for (var i = cellsArray.length - 1; i >= 0; i--) {
-        cellsArray[i].innerHTML = "";
-        cellsArray[i].style.fontSize = "2rem";
-        cellsArray[i].setAttribute("class","cell");
-      };
-      this.gameActive = true;
-      firstPlayer.moves = [];
-      secondPlayer.moves = [];
-      this.counter = 0;
-      this.gameActive = true;
-      gameBoard.addEventListener('click', clickHandler);
-    };
-  };
+  // resetBoard() {
+  //   if(this.win = true) {
+  //     for (var i = cellsArray.length - 1; i >= 0; i--) {
+  //       cellsArray[i].innerHTML = "";
+  //       cellsArray[i].style.fontSize = "2rem";
+  //       cellsArray[i].setAttribute("class","cell");
+  //     };
+  //     this.gameActive = true;
+  //     firstPlayer.moves = [];
+  //     secondPlayer.moves = [];
+  //     this.counter = 0;
+  //     this.gameActive = true;
+  //     gameBoard.addEventListener('click', clickHandler);
+  //   };
+  // };
 };

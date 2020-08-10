@@ -10,15 +10,31 @@ var cellsArray = Array.prototype.slice.call(cells);
 
 
 
-gameBoard.addEventListener('click', clickHandler);
+gameBoard.addEventListener('click', runGame);
 window.addEventListener('load', function () {
   game.countWins();
 });
 
-function clickHandler(event) {
+function runGame(event) {
   if (event.target.classList.contains('cell')) {
     game.checkCurrentPlayer();
     game.playMark();
     game.checkForWin();
   }
 }
+
+function resetBoard() {
+  if(this.win = true) {
+    for (var i = cellsArray.length - 1; i >= 0; i--) {
+      cellsArray[i].innerHTML = "";
+      cellsArray[i].style.fontSize = "2rem";
+      cellsArray[i].setAttribute("class","cell");
+    };
+    this.gameActive = true;
+    firstPlayer.moves = [];
+    secondPlayer.moves = [];
+    this.counter = 0;
+    this.gameActive = true;
+    gameBoard.addEventListener('click', runGame);
+  };
+};
